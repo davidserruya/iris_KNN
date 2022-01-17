@@ -54,7 +54,7 @@ if prediction[0]==1:
   st.image(image, caption='VERSICOLOR')
 if prediction[0]==2:
   image = Image.open('/Users/david/Desktop/iris_KNN/iris_virginica.jpeg')
-  st.image(image, caption='VIRGINICA', align=center)
+  st.image(image, caption='VIRGINICA')
 
 
 
