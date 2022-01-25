@@ -6,9 +6,8 @@ import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsClassifier
 from functions import findk,findPrediction
 
-
 # Traitement CSV
-iris=pandas.read_csv("/Users/david/Desktop/iris_KNN/iris.csv")                                                                                                  
+iris=pandas.read_csv("iris.csv")                                                                                                  
 x=iris.loc[:,"petal_length"]                                                                                                                                    
 y=iris.loc[:,"petal_width"]                                                                                                                                     
 species=iris.loc[:,"species"]                                                                                                                                       
@@ -30,10 +29,11 @@ st.markdown("<h1 style='text-align: center; color: red;'>IRIS INTERFACE</h1>", u
 """
 En 1936, Edgar Anderson a collecté des données sur 3 espèces d\'iris : l\'iris setosa, l\'iris virginica et l\'iris versicolor.
 """
-image = Image.open('/Users/david/Desktop/iris_KNN/iris_setosa.jpeg')
-image2 = Image.open('/Users/david/Desktop/iris_KNN/iris_versicolor.jpeg')
-image3 = Image.open('/Users/david/Desktop/iris_KNN/iris_virginica.jpeg')
-st.image([image,image2,image3],caption=["SETOSA","VERSICOLOR","VIRGINICA"])
+image = Image.open('iris_setosa.jpeg')
+image2 = Image.open('iris_versicolor.jpeg')
+image3 = Image.open('iris_virginica.jpeg')
+col1, col2, col3 = st.columns([0.2, 1.1, 0.2])
+col2.image([image,image2,image3],caption=["SETOSA","VERSICOLOR","VIRGINICA"])
 
 """
 Pour chaque iris étudié, Anderson a mesuré (en cm) :
@@ -43,6 +43,8 @@ Pour chaque iris étudié, Anderson a mesuré (en cm) :
 * la longueur des pétales
 """
 st.write('Par souci de simplification, nous nous intéresserons uniquement à la largeur et à la longueur des pétales.')
+
+
 
 
 # Affichage graphique des K plus proches voisins
@@ -59,22 +61,21 @@ plt.savefig('saved_figure.png')
 # Affichage résultats
 st.write("Votre iris a des pétales de longueur de ", longueur, ' cm et de largeur de ',largeur,' cm.')
 image = Image.open('saved_figure.png')
-col1, col2, col3 = st.columns([0.2, 1, 0.2])
+col1, col2, col3 = st.columns([0.2, 0.6, 0.2])
 col2.image(image, use_column_width=True)
 st.write("D'après l'algorithme des k plus proches voisins, où ", findk(list(zip(x,y)),species)," est le K optimal, votre iris est de l'espèce : ")
 
 if prediction[0]==0:
-  image = Image.open('/Users/david/Desktop/iris_KNN/iris_setosa.jpeg')
-  col1, col2, col3 = st.columns([0.2, 0.4, 0.2])
+  image = Image.open('iris_setosa.jpeg')
+  col1, col2, col3 = st.columns([0.2, 0.2, 0.2])
   col2.image(image, use_column_width=True, caption='SETOSA')
 elif prediction[0]==1:
-  image = Image.open('/Users/david/Desktop/iris_KNN/iris_versicolor.jpeg')
-  image = Image.open('/Users/david/Desktop/iris_KNN/iris_versicolor.jpeg')
-  col1, col2, col3 = st.columns([0.2, 0.4, 0.2])
+  image = Image.open('iris_versicolor.jpeg')
+  col1, col2, col3 = st.columns([0.2, 0.2, 0.2])
   col2.image(image, use_column_width=True, caption='VERSICOLOR')
 else:
-  image = Image.open('/Users/david/Desktop/iris_KNN/iris_virginica.jpeg')
-  col1, col2, col3 = st.columns([0.2, 0.4, 0.2])
+  image = Image.open('iris_virginica.jpeg')
+  col1, col2, col3 = st.columns([0.2, 0.2, 0.2])
   col2.image(image, use_column_width=True, caption='VIRGINICA')
 # Fin affichage résultats
 
