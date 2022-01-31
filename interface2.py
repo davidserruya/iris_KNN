@@ -12,12 +12,17 @@ from PIL import ImageFilter
 from functions import findk,findPrediction, convertImageToPixels
 import cv2
 
-mnist = fetch_openml('mnist_784', version=1)
-sample = np.random.randint(70000, size=5000)
-data = mnist.data.values[sample]
-target = mnist.target.values[sample]
-knn = KNeighborsClassifier(n_neighbors=4)
-knn.fit(data, target)
+@st.cache
+def initialise(): 
+ mnist = fetch_openml('mnist_784', version=1)
+ sample = np.random.randint(70000, size=5000)
+ data = mnist.data.values[sample]
+ target = mnist.target.values[sample]
+ knn = KNeighborsClassifier(n_neighbors=4)
+ knn= knn.fit(data, target)
+ return knn
+
+knn=initialise()
 
 # Affichage barre latérale
 st.sidebar.markdown("<h1 style='text-align: center; color: red;'>DIGIT MENU</h1>", unsafe_allow_html=True)
@@ -27,6 +32,9 @@ uploaded_files = st.sidebar.file_uploader("Déposez une image au format png",typ
 
 # Affichage page principale
 st.markdown("<h1 style='text-align: center; color: red;'>DIGIT INTERFACE</h1>", unsafe_allow_html=True)
+image = Image.open('frise.png')
+col1, col2, col3 = st.columns([0.2, 0.4, 0.2])
+col2.image([image])
 
 if uploaded_files is not None:
  image = convertImageToPixels(uploaded_files)

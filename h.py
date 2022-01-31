@@ -25,12 +25,20 @@ app = hy.HydraApp(title='Simple Multi-Page App')
 
 
 @app.addapp()
-def my_home():
+def My_Home():
+ exec(open("home.py").read())
+
+@app.addapp()
+def Iris_Interface():
  exec(open("interface.py").read())
 
 @app.addapp()
-def app2():
+def Digit_Interface():
  exec(open("interface2.py").read())
+
+@app.addapp()
+def K_Interface():
+ exec(open("k.py").read())
 
 #Run the whole lot, we get navbar, state management and app isolation, all with this tiny amount of work.
 app.run()
