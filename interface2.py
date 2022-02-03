@@ -31,7 +31,7 @@ model,kopt=initialise()
 
 # Affichage page principale
 st.markdown("<h1 style='text-align: center; color: red;'>DIGIT INTERFACE</h1>", unsafe_allow_html=True)
-image = Image.open('frise.png')
+image = Image.open('digit_images/frise.png')
 col1, col2, col3 = st.columns([0.2, 0.4, 0.2])
 col2.image([image])
 
@@ -53,25 +53,25 @@ if uploaded_files is not None:
  st.write("D'après l'algorithme des k plus proches voisins, où ",kopt," est le K optimal, votre image représente un : ")
 
  if resultat=='0':
-    imageResult = Image.open('digit/0.png')
+    imageResult = Image.open('digit_images/0.png')
  elif resultat=='1':
-   imageResult = Image.open('digit/1.png')
+   imageResult = Image.open('digit_images/1.png')
  elif resultat=='2':
-   imageResult = Image.open('digit/2.png')
+   imageResult = Image.open('digit_images/2.png')
  elif resultat=='3':
-   imageResult = Image.open('digit/3.png')
+   imageResult = Image.open('digit_images/3.png')
  elif resultat=='4':
-   imageResult = Image.open('digit/4.png')
+   imageResult = Image.open('digit_images/4.png')
  elif resultat=='5':
-   imageResult = Image.open('digit/5.png')
+   imageResult = Image.open('digit_images/5.png')
  elif resultat=='6':
-   imageResult = Image.open('digit/6.png')
+   imageResult = Image.open('digit_images/6.png')
  elif resultat=='7':
-   imageResult = Image.open('digit/7.png')
+   imageResult = Image.open('digit_images/7.png')
  elif resultat=='8':
-   imageResult = Image.open('digit/8.png')
+   imageResult = Image.open('digit_images/8.png')
  else:
-   imageResult = Image.open('digit/9.png')
+   imageResult = Image.open('digit_images/9.png')
 
  col1, col2, col3 = st.columns([0.2, 0.1, 0.4])
  col3.image([imageResult])

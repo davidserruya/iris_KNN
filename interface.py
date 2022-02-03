@@ -33,7 +33,7 @@ st.markdown(
 """
 En 1936, Edgar Anderson a collecté des données sur 3 espèces d\'iris : l\'iris setosa, l\'iris virginica et l\'iris versicolor.
 """)
-image = Image.open('fleurs.png')
+image = Image.open('iris_images/fleurs.png')
 col1, col2, col3 = st.columns([0.2, 1, 0.2])
 col2.image(image)
 st.markdown(
@@ -69,15 +69,15 @@ if (longueur!=0 and largeur!=0):
  st.write("D'après l'algorithme des k plus proches voisins, où ", kopt," est le K optimal, votre iris est de l'espèce : ")
 
  if prediction[0]==0:
-  image = Image.open('iris_setosa.jpeg')
+  image = Image.open('iris_images/iris_setosa.jpeg')
   col1, col2, col3 = st.columns([0.2, 0.2, 0.2])
   col2.image(image, use_column_width=True, caption='SETOSA')
  elif prediction[0]==1:
-  image = Image.open('iris_versicolor.jpeg')
+  image = Image.open('iris_images/iris_versicolor.jpeg')
   col1, col2, col3 = st.columns([0.2, 0.2, 0.2])
   col2.image(image, use_column_width=True, caption='VERSICOLOR')
  else:
-  image = Image.open('iris_virginica.jpeg')
+  image = Image.open('iris_images/iris_virginica.jpeg')
   col1, col2, col3 = st.columns([0.2, 0.2, 0.2])
   col2.image(image, use_column_width=True, caption='VIRGINICA')
 # Fin affichage résultats

@@ -21,7 +21,7 @@ st.markdown(
 En apprentissage supervisé, un algorithme reçoit un ensemble de données qui est étiqueté avec des valeurs de sorties correspondantes sur lequel il va pouvoir s’entraîner et définir un modèle de prédiction (training set).   
 Cet algorithme pourra par la suite être utilisé sur de nouvelles données afin de prédire leurs valeurs de sorties correspondantes (testing set).
 """)
-image = Image.open('AS.png')
+image = Image.open('home_images/AS.png')
 col1, col2, col3 = st.columns([0.2, 1, 0.2])
 col2.image([image])
 
@@ -41,6 +41,6 @@ On y retrouve notamment, la distance euclidienne, la distance de Manhattan, la d
 * __Étape 6__ : Le modèle est prêt :
 
 """)
-image2 = Image.open('modeleKNN.png')
+image2 = Image.open('home_images/modeleKNN.png')
 col1, col2, col3 = st.columns([0.2, 1.2, 0.2])
 col2.image([image2])
