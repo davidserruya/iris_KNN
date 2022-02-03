@@ -19,14 +19,14 @@ with st.expander("MENU"):
 
 
 if menu == 'Home Interface':
-    exec(open("home.py").read())    
+    exec(open("home_page.py").read())    
 
 elif menu == 'Iris Interface':
-    exec(open("interface.py").read())
+    exec(open("interface_iris.py").read())
     
 
 elif menu == 'Digit Interface':
-    exec(open("interface2.py").read())
+    exec(open("interface_digit.py").read())
 
 elif menu == 'K Interface':
-    exec(open("k.py").read())
+    exec(open("interface_k.py").read())
