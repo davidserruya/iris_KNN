@@ -1,5 +1,4 @@
-#when we import hydralit, we automatically get all of Streamlit
-import hydralit as hy
+
 from ctypes import alignment
 import streamlit as st
 from PIL import Image
