@@ -7,6 +7,18 @@ from sklearn.neighbors import KNeighborsClassifier
 import pickle
 from functions import *
 
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        </style>
+        """
+st.markdown(hide_menu_style, unsafe_allow_html=True)
+
+img_file_buffer = st.camera_input("Take a picture")
+
+
 # Affichage barre latérale
 st.sidebar.markdown("<h1 style='text-align: center; color: red;'>IRIS MENU</h1>", unsafe_allow_html=True)
 st.sidebar.title('Déterminez la répartition entre le training et le testing set')

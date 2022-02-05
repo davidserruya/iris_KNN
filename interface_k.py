@@ -8,6 +8,15 @@ from sklearn.neighbors import KNeighborsClassifier
 from PIL import ImageFilter
 from functions import splitDataset, initialiseIris, initialiseDigit, findErrorsK, figurek, findkOpt
 
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        </style>
+        """
+st.markdown(hide_menu_style, unsafe_allow_html=True)
+
 # Affichage barre latérale
 st.sidebar.markdown("<h1 style='text-align: center; color: red;'>K MENU</h1>", unsafe_allow_html=True)
 st.sidebar.title('Déterminez la répartition entre le training et le testing set')

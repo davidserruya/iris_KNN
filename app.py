@@ -11,6 +11,15 @@ from functions import *
 import streamlit as st
 from streamlit_option_menu import option_menu
 
+hide_menu_style = """
+        <style>
+        #MainMenu {visibility: hidden;}
+        footer {visibility: hidden;}
+        header {visibility: hidden;}
+        </style>
+        """
+st.markdown(hide_menu_style, unsafe_allow_html=True)
+
 with st.expander("MENU"):
      menu = option_menu(None, ["Home Interface", "Iris Interface", "Digit Interface", 'K Interface'], 
     icons=['house', "suit-club", "123", 'graph-up'], 
