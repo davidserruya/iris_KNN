@@ -27,6 +27,7 @@ st.sidebar.title('Déterminez la répartition entre le training et le testing se
 size = st.sidebar.number_input('Entrez le pourcentage du training set',min_value=0.0,max_value=1.0, value=0.8)
 st.sidebar.title('Déterminez le chiffre présent sur votre image : ')
 uploaded_files = st.sidebar.file_uploader("Déposez une image au format PNG/JPG/JPEG",type=["png","jpg","jpeg"])
+#img_file_buffer = st.sidebar.camera_input("Ou prenez une photo")
 # Fin affichage barre latérale
 
 @st.cache(suppress_st_warning=True)

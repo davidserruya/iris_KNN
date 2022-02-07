@@ -16,7 +16,6 @@ hide_menu_style = """
         """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
 
-img_file_buffer = st.camera_input("Take a picture")
 
 
 # Affichage barre latérale

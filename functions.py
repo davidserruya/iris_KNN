@@ -15,6 +15,8 @@ import pandas
 import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsClassifier
 import pickle
+import scipy.io
+
 
 
 def initialiseIris(choix):
@@ -28,7 +30,7 @@ def initialiseIris(choix):
     return data,target
 
 def initialiseDigit():
-    mnist = fetch_openml('mnist_784', version=1)
+    mnist = fetch_openml('mnist_784', data_home='./mnist') 
     sample = np.random.randint(70000, size=5000)
     data = mnist.data.values[sample]
     target = mnist.target.values[sample]
