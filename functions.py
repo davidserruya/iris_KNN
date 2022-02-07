@@ -30,11 +30,9 @@ def initialiseIris(choix):
     return data,target
 
 def initialiseDigit():
-    mnist = fetch_openml('mnist_784', version=1)
-    sample = np.random.randint(70000, size=5000)
-    data = mnist.data.values[sample]
-    target = mnist.target.values[sample]
-    return data,target
+    model=pickle.load(open('knnpickle_file', 'rb'))
+    kopt = 3
+    return model,kopt
 
 def findErrorsK(xtrain,ytrain,xtest,ytest):
    data = {}
