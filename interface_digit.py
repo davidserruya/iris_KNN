@@ -27,7 +27,7 @@ st.sidebar.title('Déterminez la répartition entre le training et le testing se
 size = st.sidebar.number_input('Entrez le pourcentage du training set',min_value=0.0,max_value=1.0, value=0.8)
 st.sidebar.title('Déterminez le chiffre présent sur votre image : ')
 uploaded_files = st.sidebar.file_uploader("Déposez une image au format PNG/JPG/JPEG",type=["png","jpg","jpeg"])
-#img_file_buffer = st.sidebar.camera_input("Ou prenez une photo")
+img_file_buffer = st.sidebar.camera_input("Ou prenez une photo")
 # Fin affichage barre latérale
 
 @st.cache(suppress_st_warning=True)
@@ -50,8 +50,11 @@ st.markdown("""
 L'objectif de ce jeu de données était de permettre à un ordinateur d'apprendre à reconnaître des nombres manuscrits automatiquement (pour lire des chèques par exemple).  
 Votre image sera donc convertie en 28x28 pixels avant d'être testée par l'algorithme.""")
 
-if uploaded_files is not None:
- image = convertImageToPixels(uploaded_files)
+if uploaded_files is not None or img_file_buffer is not None:
+ if uploaded_files is not None:
+   image = convertImageToPixels(uploaded_files)
+ else:
+   image = convertImageToPixels(img_file_buffer)              
  predicted= model.predict(image)
  resultat=predicted[0]
  st.write("L'image que vous avez choisi est la suivante : ")
