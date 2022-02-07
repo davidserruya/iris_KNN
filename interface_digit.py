@@ -58,7 +58,7 @@ if uploaded_files is not None or img_file_buffer is not None:
  predicted= model.predict(image)
  resultat=predicted[0]
  st.write("L'image que vous avez choisi est la suivante : ")
- if uploaded_files is not None:
+ if uploaded_files is not None or img_file_buffer is not None:
     col1, col2, col3 = st.columns([0.2, 0.4, 0.2])
     col2.image(uploaded_files, use_column_width=True)
  st.write("D'après l'algorithme des k plus proches voisins, où ",kopt," est le K optimal, votre image représente un : ")
