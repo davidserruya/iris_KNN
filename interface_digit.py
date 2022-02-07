@@ -32,9 +32,8 @@ uploaded_files = st.sidebar.file_uploader("Déposez une image au format PNG/JPG/
 
 @st.cache(suppress_st_warning=True)
 def initialise(): 
- data,target=initialiseDigit()
- model,kopt=findPrediction(data,target,size)
- return model, kopt
+ model=pickle.load(open('knnpickle_file', 'rb'))
+ return model, 3
 
 model,kopt=initialise()
 
