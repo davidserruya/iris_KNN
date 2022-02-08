@@ -32,7 +32,7 @@ img_file_buffer = st.sidebar.camera_input("Ou prenez une photo")
 def initialise(): 
  return initialiseDigit()
 
-model,kopt=initialise()
+model,kopt,k,error=initialise()
 
 
 # Affichage page principale
