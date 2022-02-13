@@ -30,9 +30,9 @@ def initialiseIris(choix):
     return data,target
 
 def initialiseDigit():
-    model,k,errors=pickle.load(open('knnpickle_file', 'rb'))
+    model=pickle.load(open('knnpickle_file', 'rb'))
     kopt = 3
-    return model,kopt,k,errors
+    return model,kopt
 
 def findErrorsK(xtrain,ytrain,xtest,ytest):
    data = {}
