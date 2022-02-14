@@ -31,7 +31,7 @@ def initialiseIris(choix):
 
 def initialiseDigit():
     model=pickle.load(open('knnpickle_file', 'rb'))
-    data = pd.read_csv("company_sales_data.csv")
+    data = pd.read_csv("test.csv")
     # converting column data to list
     k = data['k'].tolist()
     errors = data['erros'].tolist()
