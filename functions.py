@@ -11,7 +11,7 @@ import pandas
 from ctypes import alignment
 import streamlit as st
 from PIL import Image
-import pandas
+import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsClassifier
 import pickle
@@ -31,8 +31,12 @@ def initialiseIris(choix):
 
 def initialiseDigit():
     model=pickle.load(open('knnpickle_file', 'rb'))
-    kopt = 3
-    return model,kopt
+    data = pd.read_csv("company_sales_data.csv")
+    # converting column data to list
+    k = data['k'].tolist()
+    errors = data['erros'].tolist()
+    kopt = data['kopt'].tolist()
+    return model,kopt,k,errors
 
 def findErrorsK(xtrain,ytrain,xtest,ytest):
    data = {}
