@@ -57,6 +57,7 @@ else:
         return initialiseDigit()
     model,kopt,k,errors=initialise()
     minerror=min(errors)
+    kopt=kopt[0]
     st.pyplot(figurek(k,errors))
 
 
