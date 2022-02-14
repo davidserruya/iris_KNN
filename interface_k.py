@@ -39,23 +39,28 @@ Pour trouver le k optimal :
 if genre == 'Iris_KNN':
     functionInitialise='initialiseIris("k interface")'
     texte="la classe des iris."
+    @st.cache(allow_output_mutation=True)
+    def initialise():
+      data2,target=eval(functionInitialise)
+      xtrain,xtest,ytrain,ytest=splitDataset(data2,target,size)
+      return xtrain,xtest,ytrain,ytest
+    xtrain,ytrain,xtest,ytest=initialise()
+    k,errors=findErrorsK(xtrain,ytrain,xtest,ytest)
+    st.pyplot(figurek(k,errors))
+    minerror,kopt=findkOpt (xtrain,ytrain,xtest,ytest)
     
 else:   
     functionInitialise='initialiseDigit()'
     texte="les chiffres écrits à la main."
-    
-
-@st.cache(allow_output_mutation=True)
-def initialise():
-  data2,target=eval(functionInitialise)
-  xtrain,xtest,ytrain,ytest=splitDataset(data2,target,size)
-  return xtrain,xtest,ytrain,ytest
-xtrain,ytrain,xtest,ytest=initialise()
-k,errors=findErrorsK(xtrain,ytrain,xtest,ytest)
+    @st.cache(suppress_st_warning=True)
+    def initialise():
+        return initialiseDigit()
+    model,kopt,k,errors=initialise()
+    minerror=min(errors)
+    st.pyplot(figurek(k,errors))
 
 
-st.pyplot(figurek(k,errors))
-minerror,kopt=findkOpt (xtrain,ytrain,xtest,ytest)
+
 st.write("Comme on peut le voir, le k-NN le plus performant est celui pour lequel k = ",kopt," avec ",round(minerror,2)," erreurs. On connaît donc notre classifieur final optimal : ",kopt,"-nn. Ce qui veut dire que c'est celui qui classifie le mieux les données, et qui donc dans ce cas précis reconnaît au mieux ",texte) 
 
 
