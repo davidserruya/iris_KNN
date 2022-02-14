@@ -34,7 +34,7 @@ def initialiseDigit():
     data = pd.read_csv("test.csv")
     # converting column data to list
     k = data['k'].tolist()
-    errors = data['erros'].tolist()
+    errors = data['errors'].tolist()
     kopt = data['kopt'].tolist()
     return model,kopt,k,errors
 
