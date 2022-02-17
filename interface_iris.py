@@ -21,8 +21,6 @@ st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 # Affichage barre latérale
 st.sidebar.markdown("<h1 style='text-align: center; color: red;'>IRIS MENU</h1>", unsafe_allow_html=True)
-st.sidebar.title('Déterminez la répartition entre le training et le testing set')
-size = st.sidebar.number_input('Entrez le pourcentage du training set',min_value=0.0,max_value=1.0, value=0.66)
 st.sidebar.title('DétermineZ l\'espèce de votre iris : ')
 longueur = st.sidebar.slider('Entrez la longueur en cm', 0.0, 10.0 )
 largeur = st.sidebar.slider('Entrez la largueur en cm', 0.0, 10.0)
