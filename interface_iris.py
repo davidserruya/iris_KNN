@@ -1,11 +1,8 @@
-from ctypes import alignment
 import streamlit as st
 from PIL import Image
 import pandas
 import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsClassifier
-import pickle
-from sklearn.model_selection import train_test_split
 from functions import *
 
 hide_menu_style = """
