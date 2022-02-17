@@ -5,6 +5,7 @@ import pandas
 import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsClassifier
 import pickle
+from sklearn.model_selection import train_test_split
 from functions import *
 
 hide_menu_style = """
@@ -31,10 +32,15 @@ largeur = st.sidebar.slider('Entrez la largueur en cm', 0.0, 10.0)
 # Traitement CSV
 @st.cache(allow_output_mutation=True,suppress_st_warning=True)
 def initialise():
- data,target,x,y=initialiseIris("iris interface")
- model, kopt=findPrediction(data,target,size)
- return model,kopt,x,y,target
-model, kopt,x,y,species=initialise()                                                                                                                                    
+    iris=pandas.read_csv("iris.csv")                                                                                                  
+    x=iris.loc[:,"petal_length"]                                                                                                                                    
+    y=iris.loc[:,"petal_width"]                                                                                                                                      
+    data=list(zip(x,y))
+    target=iris.loc[:,"species"] 
+    xtrain,ytrain,xtest,ytest = train_test_split(data, target, train_size=size)
+    minerror,kopt=findkOpt(xtrain,ytrain,xtest,ytest)
+    model = KNeighborsClassifier(n_neighbors=kopt)
+    model.fit(xtrain,ytrain), kopt
 # Fin traitement CSV
 
 
