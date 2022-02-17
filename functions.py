@@ -67,7 +67,7 @@ def splitDataset(data,target,size):
 def findkOpt (data,target):
   kopt=0
   accuracy=0
-  for n_neighbors in range(1,12):
+  for n_neighbors in range(1,11):
     clf = KNeighborsClassifier(n_neighbors=n_neighbors)
     clf.fit(data,target) 
     score = accuracy_score(clf.predict(data), target)
