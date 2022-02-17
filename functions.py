@@ -72,6 +72,7 @@ def findkOpt (data,target):
     clf.fit(data,target) 
     score = accuracy_score(clf.predict(data), target)
     if score>accuracy:
+        accuracy=score
         kopt=n_neighbors
   return kopt
 
