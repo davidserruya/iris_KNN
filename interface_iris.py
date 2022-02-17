@@ -21,7 +21,7 @@ st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 # Affichage barre latérale
 st.sidebar.markdown("<h1 style='text-align: center; color: red;'>IRIS MENU</h1>", unsafe_allow_html=True)
-st.sidebar.title('DétermineZ l\'espèce de votre iris : ')
+st.sidebar.title('Déterminez l\'espèce de votre iris : ')
 longueur = st.sidebar.slider('Entrez la longueur en cm', 0.0, 10.0 )
 largeur = st.sidebar.slider('Entrez la largueur en cm', 0.0, 10.0)
 # Fin affichage barre latérale
