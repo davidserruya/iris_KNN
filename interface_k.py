@@ -20,8 +20,6 @@ st.markdown(hide_menu_style, unsafe_allow_html=True)
 
 # Affichage barre latérale
 st.sidebar.markdown("<h1 style='text-align: center; color: red;'>K MENU</h1>", unsafe_allow_html=True)
-st.sidebar.title('Déterminez la répartition entre le training et le testing set')
-size = st.sidebar.number_input('Entrez le pourcentage du training set',min_value=0.0,max_value=1.0, value=0.8)
 st.sidebar.title('Quelle est le K optimal du modèle ?')
 genre = st.sidebar.radio(
      "Choisissez un des deux problèmes : ",
