@@ -39,7 +39,7 @@ Pour trouver le k optimal :
 if genre == 'Iris_KNN':
     @st.cache(allow_output_mutation=True)
     def initialise():
-      iris=pandas.read_csv("iris.csv")                                                                                                  
+      iris=pd.read_csv("iris.csv")                                                                                                  
       x=iris.loc[:,"petal_length"]                                                                                                                                    
       y=iris.loc[:,"petal_width"]                                                                                                                                      
       data=list(zip(x,y))
