@@ -77,8 +77,7 @@ else:
 
 
 
-st.write("Comme on peut le voir, le k-NN le plus performant est celui pour lequel k = ",kopt," avec erreurs. On connaît donc notre classifieur final optimal : ",kopt,"-nn. Ce qui veut dire que c'est celui qui classifie le mieux les données, et qui donc dans ce cas précis reconnaît au mieux ) 
-
+st.write("Comme on peut le voir, le k-NN le plus performant est celui pour lequel k = ",kopt)
 
 
 
