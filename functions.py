@@ -20,16 +20,6 @@ import scipy.io
 
 
 
-def initialiseIris(choix):
-    iris=pandas.read_csv("iris.csv")                                                                                                  
-    x=iris.loc[:,"petal_length"]                                                                                                                                    
-    y=iris.loc[:,"petal_width"]                                                                                                                                      
-    data=list(zip(x,y))
-    target=iris.loc[:,"species"]
-    if choix=="iris interface":
-      return data,target,x,y
-    return data,target
-
 def initialiseDigit():
     model=pickle.load(open('knnpickle_file', 'rb'))
     data = pd.read_csv("test.csv")
