@@ -70,7 +70,7 @@ def findkOpt (data,target):
   for n_neighbors in range(1,12):
     clf = KNeighborsClassifier(n_neighbors=n_neighbors)
     clf.fit(data,target) 
-    score = accuracy_score(clf.predict(X), y)
+    score = accuracy_score(clf.predict(data), target)
     if score>accuracy:
         kopt=n_neighbors
   return kopt
