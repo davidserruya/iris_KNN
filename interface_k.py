@@ -49,15 +49,18 @@ if genre == 'Iris_KNN':
          clf.fit(data, target) 
          score = accuracy_score(clf.predict(data), target)
          evals.append({'k': n_neighbors, 'accuracy': score})
-      evals = pd.DataFrame(evals)
-      best_k = evals.sort_values(by='accuracy', ascending=False).iloc[0]
-      fig=plt.figure(figsize=(16, 8))
-      plt.plot(evals['k'], evals['accuracy'], lw=3, c='#087E8B')
-      plt.scatter(best_k['k'], best_k['accuracy'], s=200, c='#087E8B')
-      plt.title(f"K Parameter Optimization, Optimal k = {int(best_k['k'])}", size=20)
-      plt.xlabel('K', size=14)
-      plt.ylabel('Accuracy', size=14)
-      st.pyplot(fig)
+      return evals
+    evals=initialise()
+    evals = pd.DataFrame(evals)
+    best_k = evals.sort_values(by='accuracy', ascending=False).iloc[0]
+    fig=plt.figure(figsize=(16, 8))
+    plt.plot(evals['k'], evals['accuracy'], lw=3, c='#087E8B')
+    plt.scatter(best_k['k'], best_k['accuracy'], s=200, c='#087E8B')
+    plt.title(f"K Parameter Optimization, Optimal k = {int(best_k['k'])}", size=20)
+    plt.xlabel('K', size=14)
+    plt.ylabel('Accuracy', size=14)
+    st.pyplot(fig)
+    kopt=best_k
     
 else:   
     functionInitialise='initialiseDigit()'
