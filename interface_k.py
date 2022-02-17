@@ -37,17 +37,27 @@ Pour trouver le k optimal :
     """)
 
 if genre == 'Iris_KNN':
-    functionInitialise='initialiseIris("k interface")'
-    texte="la classe des iris."
     @st.cache(allow_output_mutation=True)
     def initialise():
-      data2,target=eval(functionInitialise)
-      xtrain,xtest,ytrain,ytest=splitDataset(data2,target,size)
-      return xtrain,xtest,ytrain,ytest
-    xtrain,ytrain,xtest,ytest=initialise()
-    k,errors=findErrorsK(xtrain,ytrain,xtest,ytest)
-    st.pyplot(figurek(k,errors))
-    minerror,kopt=findkOpt (xtrain,ytrain,xtest,ytest)
+      iris=pandas.read_csv("iris.csv")                                                                                                  
+      x=iris.loc[:,"petal_length"]                                                                                                                                    
+      y=iris.loc[:,"petal_width"]                                                                                                                                      
+      data=list(zip(x,y))
+      evals = []
+      for n_neighbors in range(2,11):
+         clf = neighbors.KNeighborsClassifier(n_neighbors)
+         clf.fit(data, target) 
+         score = accuracy_score(clf.predict(data), target)
+         evals.append({'k': n_neighbors, 'accuracy': score})
+      evals = pd.DataFrame(evals)
+      best_k = evals.sort_values(by='accuracy', ascending=False).iloc[0]
+      fig=plt.figure(figsize=(16, 8))
+      plt.plot(evals['k'], evals['accuracy'], lw=3, c='#087E8B')
+      plt.scatter(best_k['k'], best_k['accuracy'], s=200, c='#087E8B')
+      plt.title(f"K Parameter Optimization, Optimal k = {int(best_k['k'])}", size=20)
+      plt.xlabel('K', size=14)
+      plt.ylabel('Accuracy', size=14)
+      st.pyplot(fig)
     
 else:   
     functionInitialise='initialiseDigit()'
