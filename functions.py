@@ -63,11 +63,16 @@ def splitDataset(data,target,size):
     return xtrain,ytrain,xtest,ytest
 
 # Fonction qui permet de trouver le K optimal
-def findkOpt (xtrain,ytrain,xtest,ytest):
-  k,errors=findErrorsK(xtrain,ytrain,xtest,ytest)
-  minerror = min(errors)
-  kopt = errors.index(min(errors)) + 2
-  return minerror,kopt
+def findkOpt (data,target):
+  kopt=0
+  accuracy=0
+  for n_neighbors in range(1,12):
+    clf = neighbors.KNeighborsClassifier(n_neighbors)
+    clf.fit(data,target) 
+    score = accuracy_score(clf.predict(X), y)
+    if score>accuracy:
+        kopt=n_neighbors
+  return kopt
 
 
 # Fonction qui permet de définir d'après l'algorithme des k plus proches voisins 
