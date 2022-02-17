@@ -40,8 +40,10 @@ def initialise():
     xtrain,ytrain,xtest,ytest = train_test_split(data, target, train_size=size)
     minerror,kopt=findkOpt(xtrain,ytrain,xtest,ytest)
     model = KNeighborsClassifier(n_neighbors=kopt)
-    model.fit(xtrain,ytrain), kopt
+    model =model.fit(xtrain,ytrain)
+    return model
 # Fin traitement CSV
+model=initialise();
 
 
 # Affichage page principale
