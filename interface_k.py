@@ -45,7 +45,7 @@ if genre == 'Iris_KNN':
       data=list(zip(x,y))
       evals = []
       for n_neighbors in range(2,11):
-         clf = neighbors.KNeighborsClassifier(n_neighbors)
+         clf = KNeighborsClassifier(n_neighbors=n_neighbors)
          clf.fit(data, target) 
          score = accuracy_score(clf.predict(data), target)
          evals.append({'k': n_neighbors, 'accuracy': score})
