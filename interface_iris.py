@@ -39,9 +39,9 @@ def initialise():
     target=iris.loc[:,"species"] 
     model = KNeighborsClassifier(n_neighbors=3)
     model.fit(data,target)
-    return model,x,y
+    return model,x,y,target
 # Fin traitement CSV
-model,x,y=initialise();
+model,x,y,species=initialise();
 
 
 # Affichage page principale
