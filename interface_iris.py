@@ -36,7 +36,7 @@ def initialise():
     data=list(zip(x,y))
     target=iris.loc[:,"species"] 
     kopt=findkOpt(data,target)
-    model = KNeighborsClassifier(n_neighbors=3)
+    model = KNeighborsClassifier(n_neighbors=kopt)
     model.fit(data,target)
     return model,x,y,target,kopt
 # Fin traitement CSV
