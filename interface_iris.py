@@ -37,10 +37,8 @@ def initialise():
     y=iris.loc[:,"petal_width"]                                                                                                                                      
     data=list(zip(x,y))
     target=iris.loc[:,"species"] 
-    xtrain,ytrain,xtest,ytest = train_test_split(data, target, train_size=size)
-    minerror,kopt=findkOpt(xtrain,ytrain,xtest,ytest)
-    model = KNeighborsClassifier(n_neighbors=kopt)
-    model =model.fit(xtrain,ytrain)
+    model = KNeighborsClassifier(n_neighbors=3)
+    model.fit(data,target)
     return model
 # Fin traitement CSV
 model=initialise();
