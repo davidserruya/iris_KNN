@@ -43,6 +43,7 @@ if genre == 'Iris_KNN':
       x=iris.loc[:,"petal_length"]                                                                                                                                    
       y=iris.loc[:,"petal_width"]                                                                                                                                      
       data=list(zip(x,y))
+      target=iris.loc[:,"species"] 
       evals = []
       for n_neighbors in range(2,11):
          clf = KNeighborsClassifier(n_neighbors=n_neighbors)
