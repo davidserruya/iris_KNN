@@ -4,7 +4,7 @@ import pandas
 import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsClassifier
 from functions import *
-from functions import a
+from functions 
 
 hide_menu_style = """
         <style>
@@ -24,7 +24,7 @@ longueur = st.sidebar.slider('Entrez la longueur en cm', 0.0, 10.0 )
 largeur = st.sidebar.slider('Entrez la largueur en cm', 0.0, 10.0)
 # Fin affichage barre latérale
 
-st.write(a)
+st.write(functions.a)
 # Traitement CSV
 @st.cache(allow_output_mutation=True,suppress_st_warning=True)
 def initialise():
