@@ -18,7 +18,7 @@ from sklearn.neighbors import KNeighborsClassifier
 import pickle
 import scipy.io
 
-
+a=2
 
 def initialiseDigit():
     model=pickle.load(open('knnpickle_file', 'rb'))
