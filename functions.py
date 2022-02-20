@@ -18,8 +18,6 @@ from sklearn.neighbors import KNeighborsClassifier
 import pickle
 import scipy.io
 
-a=2
-
 def initialiseIris():
     iris=pandas.read_csv("iris.csv")                                                                                                  
     x=iris.loc[:,"petal_length"]                                                                                                                                    
