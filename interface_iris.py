@@ -24,7 +24,7 @@ longueur = st.sidebar.slider('Entrez la longueur en cm', 0.0, 10.0 )
 largeur = st.sidebar.slider('Entrez la largueur en cm', 0.0, 10.0)
 # Fin affichage barre latérale
 
-st.write(functions.a)
+
 # Traitement CSV
 @st.cache(allow_output_mutation=True,suppress_st_warning=True)
 def initialise():
