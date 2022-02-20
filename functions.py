@@ -41,59 +41,18 @@ def initialiseIris():
     return model,x,y,target,kopt,accuracy,evals
 
 def initialiseDigit():
-    model=pickle.load(open('knnpickle_file', 'rb'))
-    data = pd.read_csv("test.csv")
+    model=pickle.load(open('knnpickle_fileFinal2', 'rb'))
+    data = pd.read_csv("optimalFinal2.csv")
+    data2 = pd.read_csv("evalsFinal2.csv")
     # converting column data to list
-    k = data['k'].tolist()
-    errors = data['errors'].tolist()
     kopt = data['kopt'].tolist()
-    return model,kopt,k,errors
-
-def findErrorsK(xtrain,ytrain,xtest,ytest):
-   data = {}
-   for k in range(2,15):
-     knn = KNeighborsClassifier(k)
-     data[k]=(100*(1 - knn.fit(xtrain, ytrain).score(xtest, ytest)))
-   k = list(data.keys())
-   errors = list(data.values())
-   return k,errors
-
-def figurek(k,errors):
-  fig, ax = plt.subplots(figsize=(15, 5))
-  ax.plot(k, errors, 'o-')
-  ax.set_xlim(1, 15)
-  ax.set_xlabel("K")
-  ax.set_ylabel("Nombred'erreurs")
-  plt.title("Taux d'erreurs pour les différents classifieurs K")
-  return fig
-
-
-def splitDataset(data,target,size):
-    from sklearn.model_selection import train_test_split
-    xtrain, xtest, ytrain, ytest = train_test_split(data, target, train_size=size)
-    return xtrain,ytrain,xtest,ytest
-
-# Fonction qui permet de trouver le K optimal
-def findkOpt (data,target):
-  kopt=0
-  accuracy=0
-  for n_neighbors in range(2,11):
-    clf = KNeighborsClassifier(n_neighbors=n_neighbors)
-    clf.fit(data,target) 
-    score = accuracy_score(clf.predict(data), target)
-    if score>accuracy:
-        accuracy=score
-        kopt=n_neighbors
-  return kopt
-
-
-# Fonction qui permet de définir d'après l'algorithme des k plus proches voisins 
-# l'espèce de l'iris demandé selon sa longueur et sa largeur de taille de pétale
-def findPrediction(data,target,size):
-  xtrain,ytrain,xtest,ytest=splitDataset(data,target,size)
-  minerror,kopt=findkOpt(xtrain,ytrain,xtest,ytest)
-  model = KNeighborsClassifier(n_neighbors=kopt)
-  return model.fit(data,target), kopt
+    accuracyopt = data['accuracy'].tolist()
+    k=data2['k'].tolist()
+    accuracy=data2['accuracy'].tolist()
+    evals=[]
+    for i in range(0,len(k)):
+        evals.append({'k': k[i], 'accuracy': accuracy[i]})
+    return model,kopt,accuracyopt,evals
 
 def convertImageToPixels(imgC):
   img = Image.open(imgC)
