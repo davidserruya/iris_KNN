@@ -28,11 +28,12 @@ largeur = st.sidebar.slider('Entrez la largueur en cm', 0.0, 10.0)
 # Traitement CSV
 @st.cache(allow_output_mutation=True,suppress_st_warning=True)
 def initialise():
-    model,x,y,target,kopt,accuracy,evals =initialiseIris()
-    return model,x,y,target,kopt
+    model,x,y,target,kopt,accuracy,evals,c =initialiseIris()
+    return model,x,y,target,kopt,c
 # Fin traitement CSV
-model,x,y,species,kopt=initialise();
+model,x,y,species,kopt,c=initialise();
 
+st.write(c)
 
 # Affichage page principale
 st.markdown("<h1 style='text-align: center; color: red;'>IRIS INTERFACE</h1>", unsafe_allow_html=True)
