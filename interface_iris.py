@@ -33,7 +33,7 @@ def initialise():
 # Fin traitement CSV
 model,x,y,species,kopt,c=initialise();
 
-st.dataframe(c)
+st.write(c)
 
 # Affichage page principale
 st.markdown("<h1 style='text-align: center; color: red;'>IRIS INTERFACE</h1>", unsafe_allow_html=True)
