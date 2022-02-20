@@ -48,7 +48,7 @@ else:
     def initialise():
         model,kopt,accuracyopt,evals=initialiseDigit()
         return kopt,accuracyopt,evals
-    kopt,accuracyopt,evals=initialise()
+    kopt,accuracy,evals=initialise()
 
 
 evals = pd.DataFrame(evals)
@@ -62,7 +62,7 @@ plt.ylabel('Accuracy', size=14)
 st.pyplot(fig)
     
 
-st.write("Comme on peut le voir, le k-NN le plus performant est celui pour lequel k = ",kopt)
+st.write("Comme on peut le voir, le k-NN le plus performant est celui pour lequel k = ",kopt, " avec une précision de ",accuracy,".")
 
 
 
