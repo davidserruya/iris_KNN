@@ -8,7 +8,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
 from PIL import ImageFilter
 from functions import splitDataset, initialiseIris, initialiseDigit, findErrorsK, figurek, findkOpt
-import iris_interface
+import interface_iris
 
 hide_menu_style = """
         <style>
@@ -39,7 +39,7 @@ Pour trouver le k optimal :
 if genre == 'Iris_KNN':
     @st.cache(allow_output_mutation=True)
     def initialise():
-      iris_interface.evals
+      interface_iris.evals
       return evals
     evals=initialise()
     evals = pd.DataFrame(evals)
