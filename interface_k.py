@@ -8,6 +8,7 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
 from PIL import ImageFilter
 from functions import splitDataset, initialiseIris, initialiseDigit, findErrorsK, figurek, findkOpt
+import iris_interface
 
 hide_menu_style = """
         <style>
@@ -38,17 +39,7 @@ Pour trouver le k optimal :
 if genre == 'Iris_KNN':
     @st.cache(allow_output_mutation=True)
     def initialise():
-      iris=pd.read_csv("iris.csv")                                                                                                  
-      x=iris.loc[:,"petal_length"]                                                                                                                                    
-      y=iris.loc[:,"petal_width"]                                                                                                                                      
-      data=list(zip(x,y))
-      target=iris.loc[:,"species"] 
-      evals = []
-      for n_neighbors in range(2,11):
-         clf = KNeighborsClassifier(n_neighbors=n_neighbors)
-         clf.fit(data, target) 
-         score = accuracy_score(clf.predict(data), target)
-         evals.append({'k': n_neighbors, 'accuracy': score})
+      iris_interface.evals
       return evals
     evals=initialise()
     evals = pd.DataFrame(evals)
