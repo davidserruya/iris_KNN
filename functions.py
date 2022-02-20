@@ -45,8 +45,8 @@ def initialiseDigit():
     data = pd.read_csv("optimalFinal2.csv")
     data2 = pd.read_csv("evalsFinal2.csv")
     # converting column data to list
-    kopt = data['kopt'].tolist().[0]
-    accuracyopt = data['accuracy'].tolist().[0]
+    kopt = data['kopt'].tolist()[0]
+    accuracyopt = data['accuracy'].tolist()[0]
     k=data2['k'].tolist()
     accuracy=data2['accuracy'].tolist()
     evals=[]
