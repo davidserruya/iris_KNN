@@ -3,7 +3,7 @@ from PIL import Image
 import pandas
 import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsClassifier
-from functions import initialiseIris
+from functions import *
 
 
 hide_menu_style = """
