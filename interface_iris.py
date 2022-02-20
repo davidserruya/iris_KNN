@@ -4,7 +4,7 @@ import pandas
 import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsClassifier
 from functions import *
-from functions 
+import functions 
 
 hide_menu_style = """
         <style>
