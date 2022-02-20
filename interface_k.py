@@ -62,7 +62,7 @@ plt.ylabel('Accuracy', size=14)
 st.pyplot(fig)
     
 
-st.write("Comme on peut le voir, le k-NN le plus performant est celui pour lequel k = ",kopt, " avec une précision de ",accuracy,".")
+st.write("Comme on peut le voir, le k-NN le plus performant est celui pour lequel k = ",kopt, " avec une précision de ",round(accuracy,3),".")
 
 
 
