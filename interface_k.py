@@ -39,19 +39,9 @@ Pour trouver le k optimal :
 if genre == 'Iris_KNN':
     @st.cache(allow_output_mutation=True)
     def initialise():
-      evals=interface_iris.evals
-      return evals
-    evals=initialise()
-    evals = pd.DataFrame(evals)
-    best_k = evals.sort_values(by='accuracy', ascending=False).iloc[0]
-    fig=plt.figure(figsize=(16, 8))
-    plt.plot(evals['k'], evals['accuracy'], lw=3, c='#087E8B')
-    plt.scatter(best_k['k'], best_k['accuracy'], s=200, c='#087E8B')
-    plt.title(f"K Parameter Optimization, Optimal k = {int(best_k['k'])}", size=20)
-    plt.xlabel('K', size=14)
-    plt.ylabel('Accuracy', size=14)
-    st.pyplot(fig)
-    kopt=best_k
+        model,x,y,target,kopt,accuracy,evals =initialiseIris()
+        return kopt,accuracy,evals
+    kopt,accuracy,evals=initialise();
     
 else:   
     functionInitialise='initialiseDigit()'
@@ -64,7 +54,16 @@ else:
     kopt=kopt[0]
     st.pyplot(figurek(k,errors))
 
-
+evals = pd.DataFrame(evals)
+best_k = evals.sort_values(by='accuracy', ascending=False).iloc[0]
+fig=plt.figure(figsize=(16, 8))
+plt.plot(evals['k'], evals['accuracy'], lw=3, c='#087E8B')
+plt.scatter(best_k['k'], best_k['accuracy'], s=200, c='#087E8B')
+plt.title(f"K Parameter Optimization, Optimal k = {int(best_k['k'])}", size=20)
+plt.xlabel('K', size=14)
+plt.ylabel('Accuracy', size=14)
+st.pyplot(fig)
+    
 
 st.write("Comme on peut le voir, le k-NN le plus performant est celui pour lequel k = ",kopt)
 
