@@ -33,12 +33,19 @@ def initialise():
     y=iris.loc[:,"petal_width"]                                                                                                                                      
     data=list(zip(x,y))
     target=iris.loc[:,"species"] 
-    kopt=findkOpt(data,target)
-    model = KNeighborsClassifier(n_neighbors=kopt)
-    model.fit(data,target)
-    return model,x,y,target,kopt
+    kopt=0
+    accuracy=0
+    for n_neighbors in range(2,11):
+       clf = KNeighborsClassifier(n_neighbors=n_neighbors)
+       clf.fit(data,target) 
+       score = accuracy_score(clf.predict(data), target)
+       if score>accuracy:
+         accuracy=score
+         kopt=n_neighbors
+         model=clf
+    return model,x,y,target,kopt,accuracy
 # Fin traitement CSV
-model,x,y,species,kopt=initialise();
+model,x,y,species,kopt,accuracy=initialise();
 
 
 # Affichage page principale
