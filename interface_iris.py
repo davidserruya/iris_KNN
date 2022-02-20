@@ -33,7 +33,8 @@ def initialise():
 # Fin traitement CSV
 model,x,y,species,kopt,c=initialise();
 
-st.write(c)
+df = pandas.DataFrame(c).transpose()
+st.dataframe(df)
 
 # Affichage page principale
 st.markdown("<h1 style='text-align: center; color: red;'>IRIS INTERFACE</h1>", unsafe_allow_html=True)
