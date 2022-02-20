@@ -1,6 +1,7 @@
 from os import supports_effective_ids
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn.metrics import accuracy_score
+from sklearn.metrics import classification_report
 import matplotlib.pyplot as plt
 import ssl
 ssl._create_default_https_context = ssl._create_unverified_context
