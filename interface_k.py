@@ -44,15 +44,12 @@ if genre == 'Iris_KNN':
     kopt,accuracy,evals=initialise();
     
 else:   
-    functionInitialise='initialiseDigit()'
-    texte="les chiffres écrits à la main."
     @st.cache(suppress_st_warning=True)
     def initialise():
-        return initialiseDigit()
-    model,kopt,k,errors=initialise()
-    minerror=min(errors)
-    kopt=kopt[0]
-    st.pyplot(figurek(k,errors))
+        model,kopt,accuracyopt,evals=initialiseDigit()
+        return kopt,accuracyopt,evals
+    kopt,accuracyopt,evals=initialise()
+
 
 evals = pd.DataFrame(evals)
 best_k = evals.sort_values(by='accuracy', ascending=False).iloc[0]
