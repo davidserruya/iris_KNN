@@ -30,9 +30,10 @@ img_file_buffer = st.sidebar.camera_input("Ou prenez une photo")
 
 @st.cache(suppress_st_warning=True)
 def initialise(): 
- return initialiseDigit()
+ model,kopt,accuracyopt,evals=initialiseDigit()
+ return model,kopt
 
-model,kopt,k,errors=initialise()
+model,kopt=initialise()
 
 
 # Affichage page principale
@@ -61,7 +62,7 @@ if uploaded_files is not None or img_file_buffer is not None:
  if uploaded_files is not None or img_file_buffer is not None:
     col1, col2, col3 = st.columns([0.2, 0.4, 0.2])
     col2.image(imageCol, use_column_width=True)
- st.write("D'après l'algorithme des k plus proches voisins, où ",kopt[0]," est le K optimal, votre image représente un : ")
+ st.write("D'après l'algorithme des k plus proches voisins, où ",kopt," est le K optimal, votre image représente un : ")
 
  if resultat=='0':
     imageResult = Image.open('digit_images/0.png')
