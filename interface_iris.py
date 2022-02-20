@@ -3,7 +3,7 @@ from PIL import Image
 import pandas
 import matplotlib.pyplot as plt
 from sklearn.neighbors import KNeighborsClassifier
-from functions import *
+from functions import initialiseIris
 import functions 
 
 hide_menu_style = """
@@ -28,26 +28,10 @@ st.write(functions.a)
 # Traitement CSV
 @st.cache(allow_output_mutation=True,suppress_st_warning=True)
 def initialise():
-    iris=pandas.read_csv("iris.csv")                                                                                                  
-    x=iris.loc[:,"petal_length"]                                                                                                                                    
-    y=iris.loc[:,"petal_width"]                                                                                                                                      
-    data=list(zip(x,y))
-    target=iris.loc[:,"species"] 
-    kopt=0
-    accuracy=0
-    evals=[]
-    for n_neighbors in range(2,11):
-       clf = KNeighborsClassifier(n_neighbors=n_neighbors)
-       clf.fit(data,target) 
-       score = accuracy_score(clf.predict(data), target)
-       evals.append({'k': n_neighbors, 'accuracy': score})
-       if score>accuracy:
-         accuracy=score
-         kopt=n_neighbors
-         model=clf
-    return model,x,y,target,kopt,accuracy,evals
+    model,x,y,target,kopt,accuracy,evals =initialiseIris()
+    return model,x,y,target,kopt
 # Fin traitement CSV
-model,x,y,species,kopt,accuracy,evals=initialise();
+model,x,y,species,kopt=initialise();
 
 
 # Affichage page principale
