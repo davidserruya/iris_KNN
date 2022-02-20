@@ -20,6 +20,26 @@ import scipy.io
 
 a=2
 
+def initialiseIris():
+    iris=pandas.read_csv("iris.csv")                                                                                                  
+    x=iris.loc[:,"petal_length"]                                                                                                                                    
+    y=iris.loc[:,"petal_width"]                                                                                                                                      
+    data=list(zip(x,y))
+    target=iris.loc[:,"species"] 
+    kopt=0
+    accuracy=0
+    evals=[]
+    for n_neighbors in range(2,11):
+       clf = KNeighborsClassifier(n_neighbors=n_neighbors)
+       clf.fit(data,target) 
+       score = accuracy_score(clf.predict(data), target)
+       evals.append({'k': n_neighbors, 'accuracy': score})
+       if score>accuracy:
+         accuracy=score
+         kopt=n_neighbors
+         model=clf
+    return model,x,y,target,kopt,accuracy,evals
+
 def initialiseDigit():
     model=pickle.load(open('knnpickle_file', 'rb'))
     data = pd.read_csv("test.csv")
