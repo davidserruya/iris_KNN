@@ -39,7 +39,7 @@ Pour trouver le k optimal :
 if genre == 'Iris_KNN':
     @st.cache(allow_output_mutation=True)
     def initialise():
-      interface_iris.evals
+      evals=interface_iris.evals
       return evals
     evals=initialise()
     evals = pd.DataFrame(evals)
