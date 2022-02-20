@@ -36,7 +36,8 @@ def initialiseIris():
          accuracy=score
          kopt=n_neighbors
          model=clf
-    return model,x,y,target,kopt,accuracy,evals
+    c=classification_report(target, model, target_names=['1','2','3'])
+    return model,x,y,target,kopt,accuracy,evals,c
 
 def initialiseDigit():
     model=pickle.load(open('knnpickle_fileFinal2', 'rb'))
