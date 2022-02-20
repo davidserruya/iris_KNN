@@ -37,7 +37,7 @@ def initialiseIris():
          accuracy=score
          kopt=n_neighbors
          model=clf
-    c=classification_report(target, model, target_names=['1','2','3'])
+    c=classification_report(target, target, target_names=['1','2','3'])
     return model,x,y,target,kopt,accuracy,evals,c
 
 def initialiseDigit():
