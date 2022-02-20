@@ -35,17 +35,19 @@ def initialise():
     target=iris.loc[:,"species"] 
     kopt=0
     accuracy=0
+    evals=[]
     for n_neighbors in range(2,11):
        clf = KNeighborsClassifier(n_neighbors=n_neighbors)
        clf.fit(data,target) 
        score = accuracy_score(clf.predict(data), target)
+       evals.append({'k': n_neighbors, 'accuracy': score})
        if score>accuracy:
          accuracy=score
          kopt=n_neighbors
          model=clf
-    return model,x,y,target,kopt,accuracy
+    return model,x,y,target,kopt,accuracy,evals
 # Fin traitement CSV
-model,x,y,species,kopt,accuracy=initialise();
+model,x,y,species,kopt,accuracy,evals=initialise();
 
 
 # Affichage page principale
