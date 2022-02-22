@@ -19,6 +19,8 @@ from sklearn.neighbors import KNeighborsClassifier
 import pickle
 import scipy.io
 
+#fonction qui initialise le model pour la classification des iris 
+#en trouvant le k optimal et en initalisant l'algorithme des knn avec ce k optimal
 def initialiseIris():
     iris=pandas.read_csv("iris.csv")                                                                                                  
     x=iris.loc[:,"petal_length"]                                                                                                                                    
@@ -41,6 +43,9 @@ def initialiseIris():
     c=classification_report(target, target_pred, target_names=['class 0', 'class 1', 'class 2'])
     return model,x,y,target,kopt,accuracy,evals,c
 
+#fonction qui retourne le modele, le k optimal, la précision du k optimal 
+#et un tableau contenant pour chaque k sa précision
+#Ces informations ont été récupréré dans le fichier knnpickle_fileFinal2
 def initialiseDigit():
     model=pickle.load(open('knnpickle_fileFinal2', 'rb'))
     data = pd.read_csv("optimalFinal2.csv")
@@ -55,6 +60,7 @@ def initialiseDigit():
         evals.append({'k': k[i], 'accuracy': accuracy[i]})
     return model,kopt,accuracyopt,evals
 
+#fonction qui permet de convertir une image en pixel noir et blanc
 def convertImageToPixels(imgC):
   img = Image.open(imgC)
   img_array = np.asarray(img)
