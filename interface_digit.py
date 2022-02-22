@@ -49,6 +49,7 @@ st.markdown("""
 L'objectif de ce jeu de données était de permettre à un ordinateur d'apprendre à reconnaître des nombres manuscrits automatiquement (pour lire des chèques par exemple).  
 Votre image sera donc convertie en 28x28 pixels avant d'être testée par l'algorithme.""")
 
+# Affichage résultat
 if uploaded_files is not None or img_file_buffer is not None:
  if uploaded_files is not None:
    image = convertImageToPixels(uploaded_files)
@@ -87,7 +88,8 @@ if uploaded_files is not None or img_file_buffer is not None:
 
  col1, col2, col3 = st.columns([0.2, 0.1, 0.4])
  col3.image([imageResult])
-
+# Fin affichage résultat
+# Fin affichage page principale
 
 
 
